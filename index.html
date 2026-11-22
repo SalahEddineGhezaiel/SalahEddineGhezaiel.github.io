@@ -135,6 +135,29 @@ h3 { font-family: var(--serif); font-size: 1.3125rem; line-height: 1.3; letter-s
 .repo svg, .more a svg { transition: transform .25s var(--ease); }
 .repo:hover svg, .more a:hover svg { transform: translate(2px, -2px); }
 
+/* Project diagrams: drawn in the page's own palette so they read as part of it */
+.viz { margin: 1.5rem 0 0; padding: 1.125rem 1.125rem .875rem; background: var(--surface); border-radius: 14px; }
+.viz svg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--sans); }
+.viz figcaption { margin-top: .75rem; color: var(--muted); font-size: .8125rem; line-height: 1.4; }
+.viz .t { fill: var(--text); font-size: 12.5px; }
+.viz .s { fill: var(--text); font-size: 12px; }
+.viz .m { fill: var(--muted); font-size: 11.5px; }
+.viz .h { fill: var(--text); font: 600 13.5px var(--serif); }
+.viz .code { fill: var(--text); font: 11.5px ui-monospace, "Cascadia Mono", Consolas, monospace; }
+.viz .code.m { fill: var(--muted); }
+.viz .strong { font-weight: 700; fill: var(--accent); }
+.viz .win { fill: var(--text); font-weight: 600; }
+.viz .b1 { fill: var(--accent); }
+.viz .b2 { fill: var(--accent); opacity: .4; }
+.viz .b3 { fill: var(--muted); opacity: .55; }
+.viz .dim { opacity: .55; }
+.viz .b2.dim { opacity: .22; }
+.viz .box { fill: var(--bg); stroke: var(--line); }
+.viz .box.key { stroke: var(--accent); }
+.viz .ln { stroke: var(--muted); stroke-width: 1.25; fill: none; }
+.viz .ah { fill: var(--muted); }
+.viz .rule { stroke: var(--line); }
+
 /* More projects */
 .more-title { margin: clamp(3rem, 6vw, 4.5rem) 0 1rem; }
 .more { list-style: none; padding: 0; border-top: 1px solid var(--line); }
@@ -176,10 +199,13 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
   .nav .name { white-space: nowrap; }
   .menu-btn { display: inline-grid; place-items: center; width: 2.75rem; height: 2.75rem; margin-right: -.625rem; border: 0; border-radius: 10px; background: none; color: var(--text); cursor: pointer; transition: transform .1s ease-out, background-color .2s; }
   .menu-btn:active { transform: scale(0.94); }
-  .menu-btn path { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; transform-origin: 12px 12px; transition: transform .3s var(--ease); }
+  /* both lines are drawn through the centre and rotate around their own middle, so the X is exact in Safari too */
+  .menu-btn path { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; transform-box: fill-box; transform-origin: center; transition: transform .3s var(--ease); }
+  .menu-btn .l1 { transform: translateY(-3px); }
+  .menu-btn .l2 { transform: translateY(3px); }
   .nav:has(#menu:popover-open) .menu-btn { background: var(--surface); }
-  .nav:has(#menu:popover-open) .l1 { transform: translateY(3px) rotate(45deg); }
-  .nav:has(#menu:popover-open) .l2 { transform: translateY(-3px) rotate(-45deg); }
+  .nav:has(#menu:popover-open) .l1 { transform: rotate(45deg); }
+  .nav:has(#menu:popover-open) .l2 { transform: rotate(-45deg); }
   /* shortcut: relies on the Popover API (Safari 17+, all current browsers); older browsers get no menu, the page still scrolls */
   #menu {
     position: fixed; inset: auto; top: 3.75rem; right: 1rem; margin: 0;
@@ -197,6 +223,7 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
   #menu a:hover, #menu a:focus-visible { background: var(--surface); outline-offset: -2px; }
   .hero { grid-template-columns: 1fr; }
   .hero img { width: 10rem; border-radius: 18px; }
+  .viz { padding: .875rem .75rem .75rem; }
   .featured li, .rows > li { grid-template-columns: 1fr; }
   .more a { grid-template-columns: minmax(0, 1fr) auto; }
   .more .stack, .more span:not(.stack) { grid-column: 1; }
@@ -219,7 +246,7 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
   <div class="wrap">
     <a class="name" href="#top">Salah Ghezaiel</a>
     <nav aria-label="Sections">
-      <button class="menu-btn" type="button" popovertarget="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M4 9h16"/><path class="l2" d="M4 15h16"/></svg></button>
+      <button class="menu-btn" type="button" popovertarget="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path class="l1" d="M4 12h16"/><path class="l2" d="M4 12h16"/></svg></button>
       <ul id="menu" popover>
         <li><a href="#work">Work</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -235,7 +262,7 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
     <div>
       <h1>Salah Ghezaiel</h1>
       <p class="lead">Data Science &amp; AI engineering student at the <strong>Polytechnic School of Sousse</strong>, Tunisia. I build machine learning pipelines, data warehouses, and the backends and apps around them.</p>
-      <p class="status">Looking for a PFE (final-year) internship</p>
+      <p class="status">Looking for a PFE internship</p>
       <div class="actions">
         <a class="btn primary" href="mailto:salaheddine.ghezaiel@polytechnicien.tn"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>Email me</a>
         <span class="pair"><a class="btn" href="resume-en.pdf" download="SalahGhezaiel_Resume_EN.pdf"><svg width="18" height="18" aria-hidden="true"><use href="#i-download"/></svg>Resume EN</a><a class="btn" href="resume-fr.pdf" download="SalahGhezaiel_CV_FR.pdf" hreflang="fr" aria-label="Resume in French">FR</a></span>
@@ -255,6 +282,28 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
           <div>
             <h3>Soccer Player Injury Prediction</h3>
             <p class="context">Machine learning internship, Association ARSII</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 212" role="img" aria-label="Test-set results. Logistic Regression: F1 0.70, recall 0.72. Random Forest: F1 0.77, recall 0.81. XGBoost: F1 0.78, recall 0.89. Strongest predictors: career days injured 38%, days injured last season 19%.">
+                <rect x="96" y="2" width="10" height="10" rx="2" class="b1"/><text x="111" y="11" class="m">F1</text>
+                <rect x="136" y="2" width="10" height="10" rx="2" class="b2"/><text x="151" y="11" class="m">Recall</text>
+                <text x="0" y="45" class="t">Logistic Reg.</text>
+                <rect x="96" y="24" width="154" height="13" rx="3" class="b1 dim"/><text x="256" y="35" class="m">0.70</text>
+                <rect x="96" y="40" width="158.4" height="13" rx="3" class="b2 dim"/><text x="260" y="51" class="m">0.72</text>
+                <text x="0" y="85" class="t">Random Forest</text>
+                <rect x="96" y="64" width="169.4" height="13" rx="3" class="b1 dim"/><text x="271" y="75" class="m">0.77</text>
+                <rect x="96" y="80" width="178.2" height="13" rx="3" class="b2 dim"/><text x="280" y="91" class="m">0.81</text>
+                <text x="0" y="125" class="t win">XGBoost</text>
+                <rect x="96" y="104" width="171.6" height="13" rx="3" class="b1"/><text x="274" y="115" class="m win">0.78</text>
+                <rect x="96" y="120" width="195.8" height="13" rx="3" class="b2"/><text x="298" y="131" class="m win">0.89</text>
+                <line x1="0" y1="150" x2="360" y2="150" class="rule"/>
+                <text x="0" y="170" class="m">Strongest predictors</text>
+                <text x="0" y="190" class="s">Career days injured</text>
+                <rect x="160" y="180" width="60.8" height="12" rx="3" class="b3"/><text x="227" y="190" class="m">38%</text>
+                <text x="0" y="208" class="s">Days injured last season</text>
+                <rect x="160" y="198" width="30.4" height="12" rx="3" class="b3"/><text x="197" y="208" class="m">19%</text>
+              </svg>
+              <figcaption>Test-set scores of the three tuned models.</figcaption>
+            </figure>
           </div>
           <div>
             <p>Predicts whether a professional player will get injured during a season, using only data available before it starts. I merged player, match, injury and FIFA rating data into 2,329 player-seasons, then tuned Logistic Regression, Random Forest and XGBoost with cross-validation.</p>
@@ -267,6 +316,26 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
           <div>
             <h3>Fashion Recommendation System</h3>
             <p class="context">University project, H&amp;M dataset</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 236" role="img" aria-label="Hybrid recommender: a collaborative score from TruncatedSVD on the user-item matrix, weighted by alpha, plus a content-based cosine-similarity score on article features, weighted by one minus alpha, gives the hybrid score that ranks the top-N recommendations served by a Flask REST API. Alpha is 0.1 by default.">
+                <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
+                <rect x="0.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="12" y="22" class="h">Collaborative</text><text x="12" y="38" class="m">TruncatedSVD on the</text><text x="12" y="51" class="m">user–item matrix</text>
+                <rect x="191.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="203" y="22" class="h">Content-based</text><text x="203" y="38" class="m">Cosine similarity on</text><text x="203" y="51" class="m">article features</text>
+                <path d="M85 59 L132 110" class="ln" marker-end="url(#ah2)"/><text x="102" y="90" class="m" text-anchor="end">× α</text>
+                <path d="M275 59 L228 110" class="ln" marker-end="url(#ah2)"/><text x="258" y="90" class="m">× (1 − α)</text>
+                <rect x="80.5" y="112.5" width="199" height="58" rx="10" class="box key"/>
+                <text x="180" y="134" class="h" text-anchor="middle">Hybrid score</text>
+                <text x="180" y="151" class="m" text-anchor="middle">α · CF + (1 − α) · content</text>
+                <text x="180" y="164" class="m" text-anchor="middle">α = 0.1 by default</text>
+                <path d="M180 171 L180 194" class="ln" marker-end="url(#ah2)"/>
+                <rect x="80.5" y="196.5" width="199" height="38" rx="10" class="box"/>
+                <text x="180" y="213" class="t" text-anchor="middle">Top-N recommendations</text>
+                <text x="180" y="227" class="m" text-anchor="middle">served by a Flask REST API</text>
+              </svg>
+              <figcaption>New users with no history get content-based picks seeded with popular items.</figcaption>
+            </figure>
           </div>
           <div>
             <p>A hybrid recommender that blends collaborative filtering (TruncatedSVD on the user-item matrix) with content-based cosine similarity, handles cold-start users with popular items, and serves results through a small Flask REST API.</p>
@@ -278,6 +347,25 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
           <div>
             <h3>E-Commerce Data Warehouse</h3>
             <p class="context">Olist Brazilian e-commerce dataset</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 206" role="img" aria-label="Star schema: the fact_sales table holds price, freight_value, total_value and delivery_days, and links to five dimensions: dim_customer, dim_product, dim_seller, dim_payment, and dim_date, which is joined twice for the order and delivery dates.">
+                <line x1="172" y1="35" x2="172" y2="80" class="ln"/><line x1="188" y1="35" x2="188" y2="80" class="ln"/>
+                <text x="196" y="46" class="m">order &amp; delivery dates</text>
+                <line x1="100" y1="72" x2="112" y2="98" class="ln"/><line x1="260" y1="72" x2="248" y2="98" class="ln"/>
+                <line x1="100" y1="185" x2="112" y2="162" class="ln"/><line x1="260" y1="185" x2="248" y2="162" class="ln"/>
+                <rect x="130.5" y="4.5" width="99" height="30" rx="8" class="box"/><text x="180" y="24" class="code" text-anchor="middle">dim_date</text>
+                <rect x="0.5" y="57.5" width="99" height="30" rx="8" class="box"/><text x="50" y="77" class="code" text-anchor="middle">dim_customer</text>
+                <rect x="260.5" y="57.5" width="99" height="30" rx="8" class="box"/><text x="310" y="77" class="code" text-anchor="middle">dim_product</text>
+                <rect x="0.5" y="170.5" width="99" height="30" rx="8" class="box"/><text x="50" y="190" class="code" text-anchor="middle">dim_seller</text>
+                <rect x="260.5" y="170.5" width="99" height="30" rx="8" class="box"/><text x="310" y="190" class="code" text-anchor="middle">dim_payment</text>
+                <rect x="112.5" y="80.5" width="135" height="100" rx="10" class="box key"/>
+                <text x="180" y="100" class="code strong" text-anchor="middle">fact_sales</text>
+                <line x1="113" y1="108" x2="247" y2="108" class="rule"/>
+                <text x="126" y="125" class="code m">price</text><text x="126" y="140" class="code m">freight_value</text>
+                <text x="126" y="155" class="code m">total_value</text><text x="126" y="170" class="code m">delivery_days</text>
+              </svg>
+              <figcaption>Star schema in PostgreSQL, loaded by the pygrametl ETL.</figcaption>
+            </figure>
           </div>
           <div>
             <p>A PostgreSQL star schema with a sales fact table and five dimensions, loaded by an automated Python ETL pipeline (pygrametl), with ten analytical charts generated from SQL queries.</p>
@@ -289,6 +377,34 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
           <div>
             <h3>Stadium Reservation Microservices</h3>
             <p class="context">Soccer stadium booking platform</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 262" role="img" aria-label="Architecture: the client calls an API Gateway speaking REST and GraphQL on port 3000. The gateway calls three gRPC services: Stadium on port 50051 with SQLite, Reservation on port 50052 with SQLite, and Notification on port 50053 with RxDB. Through Apache Kafka, Stadium publishes slot.updated to Reservation, and Reservation publishes reservation created and cancelled events to Notification.">
+                <defs><marker id="ah4" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
+                <text x="180" y="11" class="m" text-anchor="middle">Client</text>
+                <path d="M180 15 L180 28" class="ln" marker-end="url(#ah4)"/>
+                <rect x="70.5" y="30.5" width="219" height="40" rx="10" class="box key"/>
+                <text x="180" y="48" class="h" text-anchor="middle">API Gateway</text>
+                <text x="180" y="63" class="m" text-anchor="middle">REST + GraphQL · :3000</text>
+                <path d="M128 71 L60 102" class="ln" marker-end="url(#ah4)"/>
+                <path d="M180 71 L180 102" class="ln" marker-end="url(#ah4)"/>
+                <path d="M232 71 L300 102" class="ln" marker-end="url(#ah4)"/>
+                <text x="186" y="91" class="m">gRPC</text>
+                <rect x="2.5" y="104.5" width="103" height="56" rx="10" class="box"/>
+                <text x="54" y="124" class="t" text-anchor="middle">Stadium</text><text x="54" y="139" class="m" text-anchor="middle">:50051</text><text x="54" y="153" class="m" text-anchor="middle">SQLite</text>
+                <rect x="128.5" y="104.5" width="103" height="56" rx="10" class="box"/>
+                <text x="180" y="124" class="t" text-anchor="middle">Reservation</text><text x="180" y="139" class="m" text-anchor="middle">:50052</text><text x="180" y="153" class="m" text-anchor="middle">SQLite</text>
+                <rect x="254.5" y="104.5" width="103" height="56" rx="10" class="box"/>
+                <text x="306" y="124" class="t" text-anchor="middle">Notification</text><text x="306" y="139" class="m" text-anchor="middle">:50053</text><text x="306" y="153" class="m" text-anchor="middle">RxDB</text>
+                <path d="M54 161 L54 194" class="ln" marker-end="url(#ah4)"/>
+                <path d="M180 163 L180 194" class="ln" marker-start="url(#ah4)" marker-end="url(#ah4)"/>
+                <path d="M306 194 L306 163" class="ln" marker-end="url(#ah4)"/>
+                <rect x="2.5" y="196.5" width="355" height="62" rx="10" class="box kafka"/>
+                <text x="16" y="216" class="h">Apache Kafka</text>
+                <text x="16" y="234" class="code m">slot.updated</text><text x="128" y="234" class="m">Stadium → Reservation</text>
+                <text x="16" y="250" class="code m">reservation.*</text><text x="128" y="250" class="m">Reservation → Notification</text>
+              </svg>
+              <figcaption>Services talk over gRPC; events flow through Kafka.</figcaption>
+            </figure>
           </div>
           <div>
             <p>Node.js microservices behind an API gateway that speaks REST and GraphQL. Services talk to each other over gRPC and publish reservation events on Apache Kafka for real-time notifications.</p>
