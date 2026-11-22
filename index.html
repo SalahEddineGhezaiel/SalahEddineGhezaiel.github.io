@@ -100,7 +100,8 @@ svg { flex: none; }
 
 /* Hero */
 .hero { padding-block: clamp(4rem, 11vw, 8rem) clamp(3.5rem, 8vw, 6rem); display: grid; grid-template-columns: auto 1fr; gap: clamp(1.75rem, 5vw, 3.5rem); align-items: center; }
-.hero img { width: clamp(8rem, 18vw, 12.5rem); height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 28%; }
+/* Portrait-format photo: its height matches the text block beside it */
+.hero img { width: clamp(13rem, 22vw, 16rem); height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: 22px; box-shadow: 0 1px 2px rgb(20 20 19 / 0.06), 0 12px 32px -8px rgb(20 20 19 / 0.18); }
 .hero h1 { font-family: var(--serif); font-size: clamp(2.5rem, 6.2vw, 4.5rem); line-height: 1.05; letter-spacing: -0.02em; font-weight: 500; text-wrap: balance; }
 .hero .lead { font-family: var(--serif); margin-top: 1.25rem; max-width: 36rem; font-size: clamp(1.125rem, 1.8vw, 1.3125rem); line-height: 1.45; color: var(--muted); text-wrap: pretty; }
 .hero .lead strong { color: var(--text); font-weight: 600; }
@@ -173,13 +174,15 @@ h3 { font-family: var(--serif); font-size: 1.3125rem; line-height: 1.3; letter-s
 .contact h2 { margin-bottom: 1rem; }
 .contact p { font-family: var(--serif); font-size: 1.1875rem; max-width: 32rem; margin-inline: auto; color: var(--muted); }
 .contact .actions { justify-content: center; margin-top: 2rem; }
-footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+.contact .btn { overflow-wrap: normal; padding-block: .5rem; }
+footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; text-align: center; }
 
 @media (max-width: 760px) {
   .nav .wrap { gap: 1rem; padding-inline: 1.25rem; }
   .nav .name { font-size: 1rem; white-space: nowrap; }
   .nav ul { gap: 1rem; font-size: .875rem; }
   .hero { grid-template-columns: 1fr; }
+  .hero img { width: 10rem; border-radius: 18px; }
   .featured li, .rows > li { grid-template-columns: 1fr; }
   .more a { grid-template-columns: minmax(0, 1fr) auto; }
   .more .stack, .more span:not(.stack) { grid-column: 1; }
@@ -386,7 +389,7 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
       <h2>Let's talk</h2>
       <p>I'm looking for a PFE internship in data science, machine learning or backend engineering. The fastest way to reach me is email.</p>
       <div class="actions">
-        <a class="btn primary" href="mailto:salaheddine.ghezaiel@polytechnicien.tn"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg>salaheddine.ghezaiel@polytechnicien.tn</a>
+        <a class="btn primary" href="mailto:salaheddine.ghezaiel@polytechnicien.tn"><svg width="18" height="18" aria-hidden="true"><use href="#i-mail"/></svg><span>salaheddine.ghezaiel<wbr>@polytechnicien.tn</span></a>
         <span class="icons">
           <a class="icon-link" href="https://github.com/SalahEddineGhezaiel" aria-label="GitHub profile"><svg width="20" height="20" aria-hidden="true"><use href="#i-github"/></svg></a>
           <a class="icon-link" href="https://www.linkedin.com/in/salahghezaiel" aria-label="LinkedIn profile"><svg width="19" height="19" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
