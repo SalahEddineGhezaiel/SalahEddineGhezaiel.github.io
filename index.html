@@ -292,6 +292,37 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
       <ul class="featured">
         <li>
           <div>
+            <h3>Fashion Recommendation System</h3>
+            <p class="context">University project, H&amp;M dataset</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 236" role="img" aria-label="Hybrid recommender: a collaborative score from TruncatedSVD on the user-item matrix, weighted by alpha, plus a content-based cosine-similarity score on article features, weighted by one minus alpha, gives the hybrid score that ranks the top-N recommendations served by a Flask REST API. Alpha is 0.1 by default.">
+                <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
+                <rect x="0.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="12" y="22" class="h">Collaborative</text><text x="12" y="38" class="m">TruncatedSVD on the</text><text x="12" y="51" class="m">user–item matrix</text>
+                <rect x="191.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="203" y="22" class="h">Content-based</text><text x="203" y="38" class="m">Cosine similarity on</text><text x="203" y="51" class="m">article features</text>
+                <path d="M85 59 L132 110" class="ln" marker-end="url(#ah2)"/><text x="102" y="90" class="m" text-anchor="end">× α</text>
+                <path d="M275 59 L228 110" class="ln" marker-end="url(#ah2)"/><text x="258" y="90" class="m">× (1 − α)</text>
+                <rect x="80.5" y="112.5" width="199" height="58" rx="10" class="box key"/>
+                <text x="180" y="134" class="h" text-anchor="middle">Hybrid score</text>
+                <text x="180" y="151" class="m" text-anchor="middle">α · CF + (1 − α) · content</text>
+                <text x="180" y="164" class="m" text-anchor="middle">α = 0.1 by default</text>
+                <path d="M180 171 L180 194" class="ln" marker-end="url(#ah2)"/>
+                <rect x="80.5" y="196.5" width="199" height="38" rx="10" class="box"/>
+                <text x="180" y="213" class="t" text-anchor="middle">Top-N recommendations</text>
+                <text x="180" y="227" class="m" text-anchor="middle">served by a Flask REST API</text>
+              </svg>
+              <figcaption>New users with no history get content-based picks seeded with popular items.</figcaption>
+            </figure>
+          </div>
+          <div>
+            <p>A hybrid recommender that blends collaborative filtering (TruncatedSVD on the user-item matrix) with content-based cosine similarity, handles cold-start users with popular items, and serves results through a small Flask REST API.</p>
+            <p class="stack">Python · scikit-learn · pandas · Flask</p>
+            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Fashion-Recommendation-System">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        <li>
+          <div>
             <h3>E-Commerce Data Warehouse</h3>
             <p class="context">Olist Brazilian e-commerce dataset</p>
             <figure class="viz">
@@ -357,37 +388,6 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
             <p>Node.js microservices behind an API gateway that speaks REST and GraphQL. Services talk to each other over gRPC and publish reservation events on Apache Kafka for real-time notifications.</p>
             <p class="stack">Node.js · gRPC · Apache Kafka · GraphQL · SQLite</p>
             <a class="repo" href="https://github.com/SalahEddineGhezaiel/Stadium-Microservices-Kafka">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Fashion Recommendation System</h3>
-            <p class="context">University project, H&amp;M dataset</p>
-            <figure class="viz">
-              <svg viewBox="0 0 360 236" role="img" aria-label="Hybrid recommender: a collaborative score from TruncatedSVD on the user-item matrix, weighted by alpha, plus a content-based cosine-similarity score on article features, weighted by one minus alpha, gives the hybrid score that ranks the top-N recommendations served by a Flask REST API. Alpha is 0.1 by default.">
-                <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
-                <rect x="0.5" y="0.5" width="168" height="58" rx="10" class="box"/>
-                <text x="12" y="22" class="h">Collaborative</text><text x="12" y="38" class="m">TruncatedSVD on the</text><text x="12" y="51" class="m">user–item matrix</text>
-                <rect x="191.5" y="0.5" width="168" height="58" rx="10" class="box"/>
-                <text x="203" y="22" class="h">Content-based</text><text x="203" y="38" class="m">Cosine similarity on</text><text x="203" y="51" class="m">article features</text>
-                <path d="M85 59 L132 110" class="ln" marker-end="url(#ah2)"/><text x="102" y="90" class="m" text-anchor="end">× α</text>
-                <path d="M275 59 L228 110" class="ln" marker-end="url(#ah2)"/><text x="258" y="90" class="m">× (1 − α)</text>
-                <rect x="80.5" y="112.5" width="199" height="58" rx="10" class="box key"/>
-                <text x="180" y="134" class="h" text-anchor="middle">Hybrid score</text>
-                <text x="180" y="151" class="m" text-anchor="middle">α · CF + (1 − α) · content</text>
-                <text x="180" y="164" class="m" text-anchor="middle">α = 0.1 by default</text>
-                <path d="M180 171 L180 194" class="ln" marker-end="url(#ah2)"/>
-                <rect x="80.5" y="196.5" width="199" height="38" rx="10" class="box"/>
-                <text x="180" y="213" class="t" text-anchor="middle">Top-N recommendations</text>
-                <text x="180" y="227" class="m" text-anchor="middle">served by a Flask REST API</text>
-              </svg>
-              <figcaption>New users with no history get content-based picks seeded with popular items.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A hybrid recommender that blends collaborative filtering (TruncatedSVD on the user-item matrix) with content-based cosine similarity, handles cold-start users with popular items, and serves results through a small Flask REST API.</p>
-            <p class="stack">Python · scikit-learn · pandas · Flask</p>
-            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Fashion-Recommendation-System">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </li>
         <li>
