@@ -3,3 +3,4 @@
 # local only: design notes and tests, not part of the public site
 PRODUCT.md
 tests/
+prep/
