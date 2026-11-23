@@ -292,71 +292,6 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
       <ul class="featured">
         <li>
           <div>
-            <h3>Soccer Player Injury Prediction</h3>
-            <p class="context">Machine learning internship, Association ARSII</p>
-            <figure class="viz">
-              <svg viewBox="0 0 360 212" role="img" aria-label="Test-set results. Logistic Regression: F1 0.70, recall 0.72. Random Forest: F1 0.77, recall 0.81. XGBoost: F1 0.78, recall 0.89. Strongest predictors: career days injured 38%, days injured last season 19%.">
-                <rect x="96" y="2" width="10" height="10" rx="2" class="b1"/><text x="111" y="11" class="m">F1</text>
-                <rect x="136" y="2" width="10" height="10" rx="2" class="b2"/><text x="151" y="11" class="m">Recall</text>
-                <text x="0" y="45" class="t">Logistic Reg.</text>
-                <rect x="96" y="24" width="154" height="13" rx="3" class="b1 dim"/><text x="256" y="35" class="m">0.70</text>
-                <rect x="96" y="40" width="158.4" height="13" rx="3" class="b2 dim"/><text x="260" y="51" class="m">0.72</text>
-                <text x="0" y="85" class="t">Random Forest</text>
-                <rect x="96" y="64" width="169.4" height="13" rx="3" class="b1 dim"/><text x="271" y="75" class="m">0.77</text>
-                <rect x="96" y="80" width="178.2" height="13" rx="3" class="b2 dim"/><text x="280" y="91" class="m">0.81</text>
-                <text x="0" y="125" class="t win">XGBoost</text>
-                <rect x="96" y="104" width="171.6" height="13" rx="3" class="b1"/><text x="274" y="115" class="m win">0.78</text>
-                <rect x="96" y="120" width="195.8" height="13" rx="3" class="b2"/><text x="298" y="131" class="m win">0.89</text>
-                <line x1="0" y1="150" x2="360" y2="150" class="rule"/>
-                <text x="0" y="170" class="m">Strongest predictors</text>
-                <text x="0" y="190" class="s">Career days injured</text>
-                <rect x="160" y="180" width="60.8" height="12" rx="3" class="b3"/><text x="227" y="190" class="m">38%</text>
-                <text x="0" y="208" class="s">Days injured last season</text>
-                <rect x="160" y="198" width="30.4" height="12" rx="3" class="b3"/><text x="197" y="208" class="m">19%</text>
-              </svg>
-              <figcaption>Test-set scores of the three tuned models.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>Predicts whether a professional player will get injured during a season, using only data available before it starts. I merged player, match, injury and FIFA rating data into 2,329 player-seasons, then tuned Logistic Regression, Random Forest and XGBoost with cross-validation.</p>
-            <span class="result">XGBoost: F1 0.78, recall 89%</span>
-            <p class="stack">Python · pandas · scikit-learn · XGBoost</p>
-            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Soccer_Player_Injury_Prediction">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Fashion Recommendation System</h3>
-            <p class="context">University project, H&amp;M dataset</p>
-            <figure class="viz">
-              <svg viewBox="0 0 360 236" role="img" aria-label="Hybrid recommender: a collaborative score from TruncatedSVD on the user-item matrix, weighted by alpha, plus a content-based cosine-similarity score on article features, weighted by one minus alpha, gives the hybrid score that ranks the top-N recommendations served by a Flask REST API. Alpha is 0.1 by default.">
-                <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
-                <rect x="0.5" y="0.5" width="168" height="58" rx="10" class="box"/>
-                <text x="12" y="22" class="h">Collaborative</text><text x="12" y="38" class="m">TruncatedSVD on the</text><text x="12" y="51" class="m">user–item matrix</text>
-                <rect x="191.5" y="0.5" width="168" height="58" rx="10" class="box"/>
-                <text x="203" y="22" class="h">Content-based</text><text x="203" y="38" class="m">Cosine similarity on</text><text x="203" y="51" class="m">article features</text>
-                <path d="M85 59 L132 110" class="ln" marker-end="url(#ah2)"/><text x="102" y="90" class="m" text-anchor="end">× α</text>
-                <path d="M275 59 L228 110" class="ln" marker-end="url(#ah2)"/><text x="258" y="90" class="m">× (1 − α)</text>
-                <rect x="80.5" y="112.5" width="199" height="58" rx="10" class="box key"/>
-                <text x="180" y="134" class="h" text-anchor="middle">Hybrid score</text>
-                <text x="180" y="151" class="m" text-anchor="middle">α · CF + (1 − α) · content</text>
-                <text x="180" y="164" class="m" text-anchor="middle">α = 0.1 by default</text>
-                <path d="M180 171 L180 194" class="ln" marker-end="url(#ah2)"/>
-                <rect x="80.5" y="196.5" width="199" height="38" rx="10" class="box"/>
-                <text x="180" y="213" class="t" text-anchor="middle">Top-N recommendations</text>
-                <text x="180" y="227" class="m" text-anchor="middle">served by a Flask REST API</text>
-              </svg>
-              <figcaption>New users with no history get content-based picks seeded with popular items.</figcaption>
-            </figure>
-          </div>
-          <div>
-            <p>A hybrid recommender that blends collaborative filtering (TruncatedSVD on the user-item matrix) with content-based cosine similarity, handles cold-start users with popular items, and serves results through a small Flask REST API.</p>
-            <p class="stack">Python · scikit-learn · pandas · Flask</p>
-            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Fashion-Recommendation-System">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-          </div>
-        </li>
-        <li>
-          <div>
             <h3>E-Commerce Data Warehouse</h3>
             <p class="context">Olist Brazilian e-commerce dataset</p>
             <figure class="viz">
@@ -424,6 +359,76 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
             <a class="repo" href="https://github.com/SalahEddineGhezaiel/Stadium-Microservices-Kafka">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </li>
+        <li>
+          <div>
+            <h3>Fashion Recommendation System</h3>
+            <p class="context">University project, H&amp;M dataset</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 236" role="img" aria-label="Hybrid recommender: a collaborative score from TruncatedSVD on the user-item matrix, weighted by alpha, plus a content-based cosine-similarity score on article features, weighted by one minus alpha, gives the hybrid score that ranks the top-N recommendations served by a Flask REST API. Alpha is 0.1 by default.">
+                <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" class="ah"/></marker></defs>
+                <rect x="0.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="12" y="22" class="h">Collaborative</text><text x="12" y="38" class="m">TruncatedSVD on the</text><text x="12" y="51" class="m">user–item matrix</text>
+                <rect x="191.5" y="0.5" width="168" height="58" rx="10" class="box"/>
+                <text x="203" y="22" class="h">Content-based</text><text x="203" y="38" class="m">Cosine similarity on</text><text x="203" y="51" class="m">article features</text>
+                <path d="M85 59 L132 110" class="ln" marker-end="url(#ah2)"/><text x="102" y="90" class="m" text-anchor="end">× α</text>
+                <path d="M275 59 L228 110" class="ln" marker-end="url(#ah2)"/><text x="258" y="90" class="m">× (1 − α)</text>
+                <rect x="80.5" y="112.5" width="199" height="58" rx="10" class="box key"/>
+                <text x="180" y="134" class="h" text-anchor="middle">Hybrid score</text>
+                <text x="180" y="151" class="m" text-anchor="middle">α · CF + (1 − α) · content</text>
+                <text x="180" y="164" class="m" text-anchor="middle">α = 0.1 by default</text>
+                <path d="M180 171 L180 194" class="ln" marker-end="url(#ah2)"/>
+                <rect x="80.5" y="196.5" width="199" height="38" rx="10" class="box"/>
+                <text x="180" y="213" class="t" text-anchor="middle">Top-N recommendations</text>
+                <text x="180" y="227" class="m" text-anchor="middle">served by a Flask REST API</text>
+              </svg>
+              <figcaption>New users with no history get content-based picks seeded with popular items.</figcaption>
+            </figure>
+          </div>
+          <div>
+            <p>A hybrid recommender that blends collaborative filtering (TruncatedSVD on the user-item matrix) with content-based cosine similarity, handles cold-start users with popular items, and serves results through a small Flask REST API.</p>
+            <p class="stack">Python · scikit-learn · pandas · Flask</p>
+            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Fashion-Recommendation-System">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Soccer Player Injury Prediction</h3>
+            <p class="context">Machine learning internship, Association ARSII</p>
+            <figure class="viz">
+              <svg viewBox="0 0 360 262" role="img" aria-label="Test-set ROC-AUC and PR-AUC on 464 player-seasons from 200 unseen players. Logistic Regression: ROC-AUC 0.68, PR-AUC 0.73. Random Forest: ROC-AUC 0.69, PR-AUC 0.73. XGBoost: ROC-AUC 0.67, PR-AUC 0.73. Tuned Logistic Regression: ROC-AUC 0.69, PR-AUC 0.75. Chance level is ROC-AUC 0.50. Strongest predictors: days injured before the season 39%, days injured last season 15%.">
+                <rect x="96" y="2" width="10" height="10" rx="2" class="b1"/><text x="111" y="11" class="m">ROC-AUC</text>
+                <rect x="170" y="2" width="10" height="10" rx="2" class="b2"/><text x="185" y="11" class="m">PR-AUC</text>
+                <text x="0" y="45" class="t">Logistic Reg.</text>
+                <rect x="96" y="24" width="149.6" height="13" rx="3" class="b1 dim"/><text x="252" y="35" class="m">0.68</text>
+                <rect x="96" y="40" width="160.6" height="13" rx="3" class="b2 dim"/><text x="263" y="51" class="m">0.73</text>
+                <text x="0" y="85" class="t">Random Forest</text>
+                <rect x="96" y="64" width="151.8" height="13" rx="3" class="b1 dim"/><text x="254" y="75" class="m">0.69</text>
+                <rect x="96" y="80" width="160.6" height="13" rx="3" class="b2 dim"/><text x="263" y="91" class="m">0.73</text>
+                <text x="0" y="125" class="t">XGBoost</text>
+                <rect x="96" y="104" width="147.4" height="13" rx="3" class="b1 dim"/><text x="249" y="115" class="m">0.67</text>
+                <rect x="96" y="120" width="160.6" height="13" rx="3" class="b2 dim"/><text x="263" y="131" class="m">0.73</text>
+                <text x="0" y="165" class="t win">Tuned LR</text>
+                <rect x="96" y="144" width="151.8" height="13" rx="3" class="b1"/><text x="254" y="155" class="m win">0.69</text>
+                <rect x="96" y="160" width="165" height="13" rx="3" class="b2"/><text x="267" y="171" class="m win">0.75</text>
+                <line x1="206" y1="20" x2="206" y2="177" stroke="var(--muted)" stroke-dasharray="3 3"/>
+                <text x="206" y="190" class="m" text-anchor="middle">chance</text>
+                <line x1="0" y1="200" x2="360" y2="200" class="rule"/>
+                <text x="0" y="220" class="m">Strongest predictors</text>
+                <text x="0" y="240" class="s">Days injured before the season</text>
+                <rect x="172" y="230" width="62.4" height="12" rx="3" class="b3"/><text x="241" y="240" class="m">39%</text>
+                <text x="0" y="258" class="s">Days injured last season</text>
+                <rect x="172" y="248" width="24" height="12" rx="3" class="b3"/><text x="203" y="258" class="m">15%</text>
+              </svg>
+              <figcaption>Test set of 464 player-seasons from 200 players not seen in training.</figcaption>
+            </figure>
+          </div>
+          <div>
+            <p>Predicts whether a professional player will get injured in the coming season, using only information available before it starts. I merged player, match, injury and FIFA data into 2,329 player-seasons, built every history feature from earlier seasons, and compared Logistic Regression, Random Forest and XGBoost on a split grouped by player.</p>
+            <span class="result">ROC-AUC 0.69 (chance: 0.50)</span>
+            <p class="stack">Python · pandas · scikit-learn · XGBoost</p>
+            <a class="repo" href="https://github.com/SalahEddineGhezaiel/Soccer_Player_Injury_Prediction">View code <svg width="14" height="14" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </li>
       </ul>
 
       <h3 class="more-title">More projects</h3>
@@ -450,8 +455,8 @@ footer { padding-block: 2rem; border-top: 1px solid var(--line); color: var(--mu
             <h3>Machine Learning Intern</h3>
             <p class="org">Association ARSII · Sousse</p>
             <ul>
-              <li>Built an ML pipeline (Python, scikit-learn, pandas) merging three football data sources into 2,329 player-seasons to predict injury risk.</li>
-              <li>Tuned XGBoost and Random Forest with 5-fold CV; XGBoost scored best (test F1 0.78, recall 89%).</li>
+              <li>Built a machine learning pipeline (Python, scikit-learn, pandas) merging player, match, injury and FIFA data into 2,329 player-seasons to predict a player's injury risk for the next season from past-season data only.</li>
+              <li>Compared Logistic Regression, Random Forest and XGBoost with player-grouped 5-fold CV (no player in both train and test); best model ranks injury risk with ROC-AUC 0.69 (vs 0.50 chance).</li>
             </ul>
           </div>
         </li>
